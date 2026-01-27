@@ -11,7 +11,7 @@ export default function Footer() {
             <p className="text-text-secondary mb-4 leading-relaxed">
               Somos José y América. Nacimos con una misión simple: 
               <span className="text-gold"> Conectar Bolivia con el mundo</span>. 
-              Importamos productos de calidad desde China y otros países, 
+              Importamos productos de calidad desde otros países, 
               eliminando intermediarios para ofrecerte los mejores precios.
             </p>
             <p className="text-text-muted text-sm">
