@@ -7,6 +7,7 @@ import BrandCarousel from "@/components/BrandCarousel";
 import { ArrowRight, Package, Shield, Truck } from "lucide-react";
 import { motion } from "framer-motion";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ProductSearch from "@/components/ProductSearch";
 
 // Need to make this a client component for animations
 // We'll fetch products differently
@@ -100,13 +101,13 @@ function HomeContent() {
           className="container mx-auto px-4 h-full flex flex-col justify-center items-start relative z-10"
         >
           <div className="max-w-3xl">
-            <h1 className="font-poppins text-2xl md:text-4xl font-semibold mb-4 tracking-tight text-text-primary">
+            <h1 className="font-poppins text-xl md:text-3xl font-semibold mb-3 leading-tight text-text-primary">
               Descubre el mundo <br />
               <span className="text-gold-gradient">
                 sin fronteras
               </span>
             </h1>
-            <p className="text-sm md:text-base text-text-secondary max-w-xl mb-6 leading-relaxed">
+            <p className="text-xs md:text-sm text-text-secondary max-w-xl mb-5 leading-relaxed">
               Importamos lo mejor de China y el mundo, directo a Bolivia.
               <span className="text-gold"> Precios bajos, calidad garantizada y pagos seguros. </span>
             </p>
@@ -122,13 +123,13 @@ function HomeContent() {
                   ease: "easeInOut"
                 }}
                 whileHover={{ scale: 1.06 }}
-                className="px-8 py-4 btn-gold rounded-full shadow-gold flex items-center gap-2"
+                className="px-6 py-3 text-sm btn-gold rounded-full shadow-gold flex items-center gap-2"
               >
-                Ver Productos <ArrowRight className="w-5 h-5" />
+                Ver Productos <ArrowRight className="w-4 h-4" />
               </motion.a>
               <Link
                 href="/categoria/hogar"
-                className="px-8 py-4 btn-outline-gold rounded-full transition-all duration-300 hover:bg-gold/10"
+                className="px-6 py-3 text-sm btn-outline-gold rounded-full transition-all duration-300 hover:bg-gold/10"
               >
                 Mayoristas
               </Link>
@@ -151,8 +152,8 @@ function HomeContent() {
               <Package className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-lg text-text-primary">Importación Directa</h3>
-              <p className="text-text-muted text-sm">Sin intermediarios, mejores precios.</p>
+              <h3 className="font-poppins font-semibold text-base text-text-primary">Importación Directa</h3>
+              <p className="text-text-muted text-xs">Sin intermediarios, mejores precios.</p>
             </div>
           </motion.div>
           <motion.div 
@@ -166,8 +167,8 @@ function HomeContent() {
               <Truck className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-lg text-text-primary">Envíos a todo el país</h3>
-              <p className="text-text-muted text-sm">Santa Cruz, La Paz, Cochabamba.</p>
+              <h3 className="font-poppins font-semibold text-base text-text-primary">Envíos a todo el país</h3>
+              <p className="text-text-muted text-xs">Santa Cruz, La Paz, Cochabamba.</p>
             </div>
           </motion.div>
           <motion.div 
@@ -181,17 +182,20 @@ function HomeContent() {
               <Shield className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-lg text-text-primary">Compra Segura</h3>
-              <p className="text-text-muted text-sm">Pago QR y soporte personalizado.</p>
+              <h3 className="font-poppins font-semibold text-base text-text-primary">Compra Segura</h3>
+              <p className="text-text-muted text-xs">Pago QR y soporte personalizado.</p>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Product Search */}
+      <ProductSearch />
+
       {/* Featured Products */}
       <section className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-poppins text-3xl font-semibold text-text-primary">Ofertas <span className="text-gold">Destacadas</span></h2>
+          <h2 className="font-poppins text-xl md:text-2xl font-semibold text-text-primary">Ofertas <span className="text-gold">Destacadas</span></h2>
           <Link href="/categoria/todas" className="text-gold font-medium hover:underline flex items-center gap-1">
             Ver todo <ArrowRight className="w-4 h-4"/>
           </Link>
