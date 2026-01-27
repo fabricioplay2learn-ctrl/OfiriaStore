@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart, Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/cart";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "@/app/image/kali_sinmarket_.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +36,13 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
+            <Image 
+              src={Logo} 
+              alt="OfiriaStore Logo" 
+              width={40} 
+              height={40} 
+              className="object-contain w-10 h-10 hover:scale-110 transition-transform duration-300" 
+            />
             <span className="text-2xl font-bold text-gold-gradient">
               OfiriaStore
             </span>
