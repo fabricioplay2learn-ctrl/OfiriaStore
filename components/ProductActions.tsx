@@ -16,24 +16,23 @@ export default function ProductActions({ product }: { product: Product }) {
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
-    // Optional: Show toast
   };
 
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <label className="font-medium text-gray-700">Cantidad:</label>
-        <div className="flex items-center border rounded-lg">
+        <label className="font-medium text-text-secondary">Cantidad:</label>
+        <div className="flex items-center border border-border-custom rounded-lg">
           <button 
             onClick={handleDecrease}
-            className="p-2 hover:bg-gray-100 transition-colors"
+            className="p-2 hover:bg-bg-elevated transition-colors text-text-secondary"
           >
             <Minus className="w-4 h-4" />
           </button>
-          <span className="w-12 text-center font-bold">{quantity}</span>
-           <button 
+          <span className="w-12 text-center font-bold text-text-primary">{quantity}</span>
+          <button 
             onClick={handleIncrease}
-            className="p-2 hover:bg-gray-100 transition-colors"
+            className="p-2 hover:bg-bg-elevated transition-colors text-text-secondary"
           >
             <Plus className="w-4 h-4" />
           </button>
@@ -43,16 +42,16 @@ export default function ProductActions({ product }: { product: Product }) {
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={handleAddToCart}
-          className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 btn-gold font-bold py-3 px-6 rounded-xl shadow-gold"
         >
           <ShoppingCart className="w-5 h-5" />
           Agregar al Carrito
         </button>
         <WhatsAppButton 
-            href={generateWhatsAppLink(product, quantity, quantity >= 3)} 
-            className="flex-1 py-3 px-6 rounded-xl text-base"
+          href={generateWhatsAppLink(product, quantity, quantity >= 3)} 
+          className="flex-1 py-3 px-6 rounded-xl text-base"
         >
-            Negociar en WhatsApp
+          Negociar en WhatsApp
         </WhatsAppButton>
       </div>
     </div>
