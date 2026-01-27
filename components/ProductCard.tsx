@@ -87,9 +87,15 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
             <span className="text-text-muted text-sm"> [Unidad]</span>
           </div>
-          <p className="text-xs text-text-muted">
-            Precio: Negociable [Mayorista]
-          </p>
+          {product.precioMayor > 0 ? (
+            <p className="text-xs text-text-muted">
+              Mayorista: Bs {product.precioMayor} {'>'} 3 unidades
+            </p>
+          ) : (
+            <p className="text-xs text-text-muted">
+              Precio: Negociable [Mayorista]
+            </p>
+          )}
         </div>
 
         {/* CTAs */}
@@ -123,7 +129,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Línea de confianza */}
         <p className="text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
           <span>🇨🇳 → 🇧🇴</span>
-          {product.negociable && <span className="text-green-400">💬 Negociemos</span>}
+          {product.negociable && <span className="text-green-400">💬 Hablemos</span>}
         </p>
       </div>
     </motion.div>
