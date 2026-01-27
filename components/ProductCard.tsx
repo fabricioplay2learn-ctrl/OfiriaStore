@@ -81,13 +81,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Precios con lógica mayorista */}
         <div className="flex flex-col gap-1">
           <div className="flex items-baseline gap-1">
-            <span className="text-text-muted text-sm">Desde</span>
+            <span className="text-text-muted text-sm">Precio:</span>
             <span className="text-gold text-xl font-bold">
               Bs {product.precioMayor > 0 ? product.precioMayor : product.precioUnitario}
             </span>
+            <span className="text-text-muted text-sm"> [Unidad]</span>
           </div>
           <p className="text-xs text-text-muted">
-            Unitario y por mayor disponible
+            Precio: Negociable [Mayorista]
           </p>
         </div>
 
@@ -121,7 +122,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* Línea de confianza */}
         <p className="text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
-          <span>Importado 🇧🇴</span>
+          <span>🇨🇳 → 🇧🇴</span>
           {product.negociable && <span className="text-green-400">💬 Negociemos</span>}
         </p>
       </div>
