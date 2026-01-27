@@ -146,14 +146,14 @@ function HomeContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0 }}
-            className="card-luxury p-6 rounded-2xl flex items-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className="card-luxury p-4 rounded-xl flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            <div className="p-4 bg-gold/20 rounded-full text-gold">
-              <Package className="w-8 h-8" />
+            <div className="p-2.5 bg-gold/20 rounded-full text-gold">
+              <Package className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-base text-text-primary">Importación Directa</h3>
-              <p className="text-text-muted text-xs">Sin intermediarios, mejores precios.</p>
+              <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Importación Directa</h3>
+              <p className="text-text-muted text-[11px] leading-tight">Sin intermediarios, mejores precios.</p>
             </div>
           </motion.div>
           <motion.div 
@@ -161,14 +161,14 @@ function HomeContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="card-luxury p-6 rounded-2xl flex items-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className="card-luxury p-4 rounded-xl flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            <div className="p-4 bg-gold/20 rounded-full text-gold">
-              <Truck className="w-8 h-8" />
+            <div className="p-2.5 bg-gold/20 rounded-full text-gold">
+              <Truck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-base text-text-primary">Envíos a todo el país</h3>
-              <p className="text-text-muted text-xs">Santa Cruz, La Paz, Cochabamba.</p>
+              <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Envíos a todo el país</h3>
+              <p className="text-text-muted text-[11px] leading-tight">Santa Cruz, La Paz, Cochabamba.</p>
             </div>
           </motion.div>
           <motion.div 
@@ -176,14 +176,14 @@ function HomeContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="card-luxury p-6 rounded-2xl flex items-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className="card-luxury p-4 rounded-xl flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            <div className="p-4 bg-gold/20 rounded-full text-gold">
-              <Shield className="w-8 h-8" />
+            <div className="p-2.5 bg-gold/20 rounded-full text-gold">
+              <Shield className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-base text-text-primary">Compra Segura</h3>
-              <p className="text-text-muted text-xs">Pago QR y soporte personalizado.</p>
+              <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Compra Segura</h3>
+              <p className="text-text-muted text-[11px] leading-tight">Pago QR y soporte personalizado.</p>
             </div>
           </motion.div>
         </div>
