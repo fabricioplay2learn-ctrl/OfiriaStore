@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShoppingCart, Eye } from "lucide-react";
+import { ShoppingCart, Eye, MessageCircle } from "lucide-react";
 import { Product } from "@/types";
 import { useCart } from "@/lib/cart";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 interface ProductCardProps {
   product: Product;
@@ -18,6 +19,12 @@ export default function ProductCard({ product }: ProductCardProps) {
     e.preventDefault();
     e.stopPropagation();
     addToCart(product, 1);
+  };
+
+  const handleWhatsApp = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(generateWhatsAppLink(product), "_blank");
   };
 
   return (
@@ -60,7 +67,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Info */}
-      <div className="p-4 flex flex-col gap-3">
+      <div className="p-4 flex flex-col gap-2">
         <span className="text-xs text-gold-champan font-medium uppercase tracking-wider">
           {product.categoria}
         </span>
@@ -71,38 +78,46 @@ export default function ProductCard({ product }: ProductCardProps) {
           </h3>
         </Link>
 
-        {/* Precios */}
-        <div className="flex items-baseline gap-2">
-          <span className="text-gold text-xl font-bold">
-            {product.precioUnitario} Bs
-          </span>
-          {product.precioMayor > 0 && (
-            <span className="text-text-muted text-sm line-through">
-              {Math.round(product.precioUnitario * 1.2)} Bs
+        {/* Precios con lógica mayorista */}
+        <div className="flex flex-col gap-0.5">
+          <div className="flex items-baseline gap-2">
+            <span className="text-gold text-xl font-bold">
+              {product.precioUnitario} Bs
             </span>
+            <span className="text-text-muted text-xs">Unidad</span>
+          </div>
+          {product.precioMayor > 0 && (
+            <div className="flex items-baseline gap-2">
+              <span className="text-gold-champan text-sm font-semibold">
+                {product.precioMayor} Bs
+              </span>
+              <span className="text-text-muted text-xs">x mayor (+3u)</span>
+            </div>
           )}
         </div>
 
-        {/* CTA */}
-        <div className="flex items-center gap-2 mt-1">
+        {/* CTAs */}
+        <div className="flex items-center gap-2 mt-2">
           <button
             onClick={handleAddToCart}
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gold/10 text-gold hover:bg-gold hover:text-ceniza transition-all duration-300 text-sm font-medium"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gold/10 text-gold hover:bg-gold hover:text-ceniza transition-all duration-300 text-sm font-medium"
           >
             <ShoppingCart className="w-4 h-4" />
             Agregar
           </button>
-          <Link
-            href={`/producto/${product.id}`}
-            className="p-2.5 rounded-xl border border-border-custom text-text-secondary hover:border-gold hover:text-gold transition-all duration-300"
+          <button
+            onClick={handleWhatsApp}
+            className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-green-500/10 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 text-sm font-medium"
+            title="Negociar por WhatsApp"
           >
-            <Eye className="w-4 h-4" />
-          </Link>
+            <MessageCircle className="w-4 h-4" />
+          </button>
         </div>
 
-        {/* Extra confianza */}
-        <p className="text-xs text-text-muted pt-1 border-t border-border-custom">
-          Importado por OfiriaStore 🇧🇴
+        {/* Línea de confianza */}
+        <p className="text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
+          <span>Importado 🇧🇴</span>
+          {product.negociable && <span className="text-green-400">💬 Hablemos</span>}
         </p>
       </div>
     </motion.div>
