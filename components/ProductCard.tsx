@@ -100,19 +100,29 @@ export default function ProductCard({ product }: ProductCardProps) {
             <ShoppingCart className="w-4 h-4" />
             Agregar
           </button>
-          <button
+          <motion.button
             onClick={handleWhatsApp}
+            animate={{ 
+              scale: [1, 1.08, 1],
+              boxShadow: [
+                "0 0 0px rgba(34, 197, 94, 0)",
+                "0 0 15px rgba(34, 197, 94, 0.6)",
+                "0 0 0px rgba(34, 197, 94, 0)"
+              ]
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 20px rgba(34, 197, 94, 0.8)" }}
             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-green-500/10 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 text-sm font-medium"
             title="Negociar por WhatsApp"
           >
             <MessageCircle className="w-4 h-4" />
-          </button>
+          </motion.button>
         </div>
 
         {/* Línea de confianza */}
         <p className="text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
           <span>Importado 🇧🇴</span>
-          {product.negociable && <span className="text-green-400">💬 Hablemos</span>}
+          {product.negociable && <span className="text-green-400">💬 Negociemos</span>}
         </p>
       </div>
     </motion.div>
