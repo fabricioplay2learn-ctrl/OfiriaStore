@@ -15,10 +15,10 @@ const config: Config = {
         
         // Gold Palette
         'gold': {
-          DEFAULT: '#D4AF37',
-          'metallic': '#D4AF37',
+          DEFAULT: '#EFB810',
+          'metallic': '#EFB810',
           'champan': '#C5A059',
-          'bright': '#E8C547',
+          'bright': '#F0C136',
           'dark': '#B8860B',
         },
         
@@ -41,11 +41,11 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "gold-gradient": "linear-gradient(135deg, #D4AF37 0%, #C5A059 100%)",
+        "gold-gradient": "linear-gradient(135deg, #EFB810 0%, #C5A059 100%)",
       },
       boxShadow: {
-        'gold': '0 4px 20px rgba(212, 175, 55, 0.3)',
-        'gold-lg': '0 8px 32px rgba(212, 175, 55, 0.4)',
+        'gold': '0 4px 20px rgba(239, 184, 16, 0.3)',
+        'gold-lg': '0 8px 32px rgba(239, 184, 16, 0.4)',
       },
     },
   },

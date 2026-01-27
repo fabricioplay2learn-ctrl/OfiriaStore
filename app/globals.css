@@ -9,9 +9,9 @@
   --color-bg-card: #252525;
   --color-bg-elevated: #333333;
   
-  --color-gold: #D4AF37;
+  --color-gold: #EFB810;
   --color-gold-soft: #C5A059;
-  --color-gold-bright: #E8C547;
+  --color-gold-bright: #F0C136;
   
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #B8B8B8;
@@ -93,7 +93,7 @@ body {
 
 .card-luxury:hover {
   border-color: var(--color-gold-soft);
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 8px 32px rgba(239, 184, 16, 0.15);
 }
 
 /* Button styles */
@@ -107,7 +107,7 @@ body {
 .btn-gold:hover {
   background: linear-gradient(135deg, var(--color-gold-bright) 0%, var(--color-gold) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 20px rgba(239, 184, 16, 0.4);
 }
 
 .btn-outline-gold {

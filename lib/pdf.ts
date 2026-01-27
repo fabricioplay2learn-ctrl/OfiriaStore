@@ -94,7 +94,7 @@ export function generateOrderPDF(order: OrderData, items: CartItem[]) {
   y += 6;
   doc.text("1. Escanea el QR de pago (en la web oficial).", 20, y);
   y += 6;
-  doc.text("2. Envía este comprobante al WhatsApp +591 70000000.", 20, y);
+  doc.text("2. Envía este comprobante al WhatsApp +591 63921522.", 20, y);
   y += 10;
   doc.text("Gracias por tu compra en OfiriaStore.", 105, y, { align: "center" });
 
