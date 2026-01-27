@@ -79,21 +79,16 @@ export default function ProductCard({ product }: ProductCardProps) {
         </Link>
 
         {/* Precios con lógica mayorista */}
-        <div className="flex flex-col gap-0.5">
-          <div className="flex items-baseline gap-2">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-baseline gap-1">
+            <span className="text-text-muted text-sm">Desde</span>
             <span className="text-gold text-xl font-bold">
-              {product.precioUnitario} Bs
+              Bs {product.precioMayor > 0 ? product.precioMayor : product.precioUnitario}
             </span>
-            <span className="text-text-muted text-xs">Unidad</span>
           </div>
-          {product.precioMayor > 0 && (
-            <div className="flex items-baseline gap-2">
-              <span className="text-gold-champan text-sm font-semibold">
-                {product.precioMayor} Bs
-              </span>
-              <span className="text-text-muted text-xs">x mayor (+3u)</span>
-            </div>
-          )}
+          <p className="text-xs text-text-muted">
+            Unitario y por mayor disponible
+          </p>
         </div>
 
         {/* CTAs */}
