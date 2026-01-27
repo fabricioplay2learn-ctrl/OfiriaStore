@@ -47,6 +47,9 @@ export default function Navbar() {
             <Link href="/ofertas" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
               Ofertas
             </Link>
+            <Link href="/mayoristas" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
+              Mayoristas
+            </Link>
             <div className="relative group">
               <button className={`${textColorClass} hover:text-gold font-medium transition-colors flex items-center gap-1`}>
                 Categorías
@@ -120,6 +123,9 @@ export default function Navbar() {
               </Link>
               <Link href="/ofertas" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
                 Ofertas
+              </Link>
+              <Link href="/mayoristas" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
+                Mayoristas
               </Link>
               <div className="space-y-2 pl-4 border-l border-white/10">
                 <p className="text-sm text-text-muted uppercase tracking-wider">Categorías</p>
