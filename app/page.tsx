@@ -100,13 +100,13 @@ function HomeContent() {
           className="container mx-auto px-4 h-full flex flex-col justify-center items-start relative z-10"
         >
           <div className="max-w-3xl">
-            <h1 className="font-poppins text-5xl md:text-7xl font-semibold mb-6 tracking-tight text-text-primary">
+            <h1 className="font-poppins text-2xl md:text-4xl font-semibold mb-4 tracking-tight text-text-primary">
               Descubre el mundo <br />
               <span className="text-gold-gradient">
                 sin fronteras
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8 leading-relaxed">
+            <p className="text-sm md:text-base text-text-secondary max-w-xl mb-6 leading-relaxed">
               Importamos lo mejor de China y el mundo, directo a Bolivia.
               <span className="text-gold"> Precios bajos, calidad garantizada y pagos seguros. </span>
             </p>
