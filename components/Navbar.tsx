@@ -25,25 +25,27 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-text-secondary hover:text-gold font-medium transition-colors">
+            <Link href="/" className="text-white hover:text-gold font-medium transition-colors">
               Inicio
             </Link>
-            <Link href="/categoria/tecnologia" className="text-text-secondary hover:text-gold font-medium transition-colors">
-              Tecnología
-            </Link>
-            <Link href="/categoria/hogar" className="text-text-secondary hover:text-gold font-medium transition-colors">
-              Hogar
+            <Link href="/ofertas" className="text-white hover:text-gold font-medium transition-colors">
+              Ofertas
             </Link>
             <div className="relative group">
-              <button className="text-text-secondary hover:text-gold font-medium transition-colors">
+              <button className="text-white hover:text-gold font-medium transition-colors flex items-center gap-1">
                 Categorías
               </button>
               <div className="absolute top-full left-0 mt-2 w-48 bg-bg-card border border-border-custom rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                <Link href="/categoria/belleza" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold rounded-t-xl">Belleza</Link>
+                <Link href="/categoria/tecnologia" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold rounded-t-xl">Tecnología</Link>
+                <Link href="/categoria/hogar" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold">Hogar</Link>
+                <Link href="/categoria/belleza" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold">Belleza</Link>
                 <Link href="/categoria/accesorios" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold">Accesorios</Link>
                 <Link href="/categoria/otros" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold rounded-b-xl">Otros</Link>
               </div>
             </div>
+            <Link href="/quienes-somos" className="text-white hover:text-gold font-medium transition-colors">
+              Quienes Somos
+            </Link>
           </div>
 
           <div className="flex items-center space-x-3">
@@ -97,20 +99,32 @@ export default function Navbar() {
             className="md:hidden border-t border-border-custom bg-bg-primary"
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
-              <Link href="/" className="block text-lg font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
+              <Link href="/" className="block text-lg font-medium text-white hover:text-gold" onClick={() => setIsOpen(false)}>
                 Inicio
               </Link>
-              <Link href="/categoria/tecnologia" className="block text-lg font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Tecnología
+              <Link href="/ofertas" className="block text-lg font-medium text-white hover:text-gold" onClick={() => setIsOpen(false)}>
+                Ofertas
               </Link>
-              <Link href="/categoria/hogar" className="block text-lg font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Hogar
-              </Link>
-              <Link href="/categoria/belleza" className="block text-lg font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Belleza
-              </Link>
-              <Link href="/categoria/accesorios" className="block text-lg font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Accesorios
+              <div className="space-y-2 pl-4 border-l border-white/10">
+                <p className="text-sm text-text-muted uppercase tracking-wider">Categorías</p>
+                <Link href="/categoria/tecnologia" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
+                  Tecnología
+                </Link>
+                <Link href="/categoria/hogar" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
+                  Hogar
+                </Link>
+                <Link href="/categoria/belleza" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
+                  Belleza
+                </Link>
+                <Link href="/categoria/accesorios" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
+                  Accesorios
+                </Link>
+                <Link href="/categoria/otros" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
+                  Otros
+                </Link>
+              </div>
+              <Link href="/quienes-somos" className="block text-lg font-medium text-white hover:text-gold" onClick={() => setIsOpen(false)}>
+                Quienes Somos
               </Link>
             </div>
           </motion.div>
