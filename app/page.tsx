@@ -16,13 +16,13 @@ export default async function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-start relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-text-primary">
+          <h1 className="font-poppins text-5xl md:text-7xl font-semibold mb-6 tracking-tight text-text-primary">
             Descubre el mundo <br />
             <span className="text-gold-gradient">
               sin fronteras
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-2xl mb-8">
+          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mb-8 leading-relaxed">
             Importamos lo mejor de China y el mundo directamente a Bolivia. 
             Precios bajos, calidad garantizada y pagos seguros.
           </p>
@@ -51,7 +51,7 @@ export default async function Home() {
               <Package className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-text-primary">Importación Directa</h3>
+              <h3 className="font-poppins font-semibold text-lg text-text-primary">Importación Directa</h3>
               <p className="text-text-muted text-sm">Sin intermediarios, mejores precios.</p>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default async function Home() {
               <Truck className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-text-primary">Envíos a todo el país</h3>
+              <h3 className="font-poppins font-semibold text-lg text-text-primary">Envíos a todo el país</h3>
               <p className="text-text-muted text-sm">Santa Cruz, La Paz, Cochabamba.</p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default async function Home() {
               <Shield className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-text-primary">Compra Segura</h3>
+              <h3 className="font-poppins font-semibold text-lg text-text-primary">Compra Segura</h3>
               <p className="text-text-muted text-sm">Pago QR y soporte personalizado.</p>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default async function Home() {
       {/* Featured Products */}
       <section className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-text-primary">Ofertas <span className="text-gold">Destacadas</span></h2>
+          <h2 className="font-poppins text-3xl font-semibold text-text-primary">Ofertas <span className="text-gold">Destacadas</span></h2>
           <Link href="/categoria/todas" className="text-gold font-medium hover:underline flex items-center gap-1">
             Ver todo <ArrowRight className="w-4 h-4"/>
           </Link>

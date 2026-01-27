@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Outfit, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/lib/theme";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-poppins" });
 
 export const metadata: Metadata = {
   title: "OfiriaStore - Tu puente a compras globales",
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" data-theme="dark">
-      <body className={`${inter.variable} ${outfit.variable} font-sans flex flex-col min-h-screen`}>
+      <body className={`${inter.variable} ${outfit.variable} ${poppins.variable} font-sans flex flex-col min-h-screen`}>
         <ThemeProvider>
           <CartProvider>
             <Navbar />
