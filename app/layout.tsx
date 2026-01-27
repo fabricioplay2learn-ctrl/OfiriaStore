@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/lib/cart";
 import { ThemeProvider } from "@/lib/theme";
+import PageWrapper from "@/components/PageWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -26,7 +27,7 @@ export default function RootLayout({
         <ThemeProvider>
           <CartProvider>
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <PageWrapper>{children}</PageWrapper>
             <Footer />
           </CartProvider>
         </ThemeProvider>
