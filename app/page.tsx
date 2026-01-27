@@ -108,7 +108,7 @@ function HomeContent() {
               </span>
             </h1>
             <p className="text-xs md:text-sm text-text-secondary max-w-xl mb-5 leading-relaxed">
-              Importamos lo mejor de China y el mundo, directo a Bolivia.
+              Importamos lo mejor del mundo, directo a Bolivia.
               <span className="text-gold"> Precios bajos, calidad garantizada y pagos seguros. </span>
             </p>
             <div className="flex flex-wrap gap-4">

@@ -28,7 +28,7 @@ export default function Navbar() {
     <nav className={cn(
       "fixed top-0 z-50 w-full transition-all duration-300",
       isScrolled 
-        ? "border-b border-border-custom bg-bg-primary/90 backdrop-blur-md shadow-sm" 
+        ? "border-b border-gold/20 bg-bg-primary/90 backdrop-blur-md shadow-[0_4px_30px_rgba(239,184,16,0.1)]" 
         : "bg-transparent border-transparent"
     )}>
       <div className="container mx-auto px-4">
