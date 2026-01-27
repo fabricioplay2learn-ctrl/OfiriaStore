@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { getProducts } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
+import BrandCarousel from "@/components/BrandCarousel";
 import { ArrowRight, Package, Shield, Truck } from "lucide-react";
 import { motion } from "framer-motion";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -39,7 +40,7 @@ function HomeContent() {
       moneda: "Bs" as const,
       oferta: true,
       arancelCero: false,
-      imagen: "https://images.unsplash.com/photo-1522771753035-711989726f1d?w=800&q=80",
+      imagen: "https://images.unsplash.com/photo-1596568461539-74a9845d4722?auto=format&fit=crop&w=800&q=80",
       descripcion: "Sábanas suaves y duraderas, 100% algodón.",
       negociable: true,
     },
@@ -209,7 +210,8 @@ function HomeContent() {
           ))}
         </motion.div>
       </section>
-
+      {/* Brand Carousel */}
+      <BrandCarousel />
       {/* Floating WhatsApp */}
       <FloatingWhatsApp />
     </div>

@@ -83,12 +83,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div className="flex items-baseline gap-1">
             <span className="text-text-muted text-sm">Precio:</span>
             <span className="text-gold text-xl font-bold">
-              Bs {product.precioMayor > 0 ? product.precioMayor : product.precioUnitario}
+              Bs {product.precioUnitario > 0 ? product.precioUnitario : product.precioMayor}
             </span>
             <span className="text-text-muted text-sm"> [Unidad]</span>
           </div>
           {product.precioMayor > 0 ? (
-            <p className="text-xs text-text-muted">
+            <p className="text-xs text-gold-champan">
               Mayorista: Bs {product.precioMayor} {'>'} 3 unidades
             </p>
           ) : (
@@ -128,7 +128,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* Línea de confianza */}
         <p className="text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
-          <span>🇨🇳 → 🇧🇴</span>
+          <span>🇨🇳 CHN → 🇧🇴 BOL</span>
           {product.negociable && <span className="text-green-400">💬 Hablemos</span>}
         </p>
       </div>
