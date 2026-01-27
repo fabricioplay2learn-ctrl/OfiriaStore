@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Contacto</h4>
-            <p className="text-gray-400 mb-2">WhatsApp: +591 70000000</p>
+            <p className="text-gray-400 mb-2">WhatsApp: +591 63921522</p>
             <p className="text-gray-400 mb-2">Email: contacto@ofiriachain.com</p>
             <p className="text-gray-400">Bolivia</p>
           </div>

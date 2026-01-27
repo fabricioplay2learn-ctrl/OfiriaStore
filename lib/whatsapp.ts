@@ -2,7 +2,7 @@ import { Product } from "@/types";
 
 export function generateWhatsAppLink(product: Product, quantity: number = 1, isWholesale: boolean = false) {
   // TODO: Replace with environment variable or config
-  const phone = "59170000000"; 
+  const phone = "59163921522"; 
   
   const type = isWholesale ? "Al por mayor" : "Unidad";
   const price = isWholesale ? product.precioMayor : product.precioUnitario;
