@@ -110,12 +110,21 @@ function HomeContent() {
               <span className="text-gold"> Precios bajos, calidad garantizada y pagos seguros. </span>
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
+              <motion.a
                 href="/categoria/tecnologia"
-                className="px-8 py-4 btn-gold rounded-full shadow-gold flex items-center gap-2 transition-all duration-300 hover:scale-[1.03]"
+                animate={{ 
+                  scale: [1, 1.03, 1],
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                whileHover={{ scale: 1.06 }}
+                className="px-8 py-4 btn-gold rounded-full shadow-gold flex items-center gap-2"
               >
                 Ver Productos <ArrowRight className="w-5 h-5" />
-              </Link>
+              </motion.a>
               <Link
                 href="/categoria/hogar"
                 className="px-8 py-4 btn-outline-gold rounded-full transition-all duration-300 hover:bg-gold/10"
