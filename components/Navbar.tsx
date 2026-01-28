@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ShoppingCart, Menu, X, Sun, Moon, ChevronDown, Smartphone, Home, Heart, Watch, Package, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/cart";
@@ -18,12 +19,64 @@ const categories = [
   { name: "Otros", href: "/categoria/otros", icon: Package, color: "text-orange-400" },
 ];
 
+// Definimos los enlaces del menú
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/ofertas", label: "Ofertas" },
+  { href: "/mayoristas", label: "Mayoristas" },
+];
+
+/**
+ * NavLink Component - Enlace con indicador de ruta activa
+ * 
+ * Usa usePathname() para detectar la ruta actual y mostrar
+ * una línea dorada brillante debajo del enlace activo.
+ */
+function NavLink({ 
+  href, 
+  children, 
+  textColorClass 
+}: { 
+  href: string; 
+  children: React.ReactNode; 
+  textColorClass: string;
+}) {
+  const pathname = usePathname();
+  
+  // Detectamos si esta ruta está activa
+  const isActive = pathname === href;
+  
+  return (
+    <Link 
+      href={href} 
+      className={cn(
+        "relative pb-2 font-medium transition-colors",
+        // Si está activo: texto dorado, sino: color normal con hover dorado
+        isActive ? "text-gold" : `${textColorClass} hover:text-gold`
+      )}
+    >
+      {children}
+      
+      {/* Línea dorada brillante - solo visible cuando está activo */}
+      {isActive && (
+        <span 
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold/50 via-gold to-gold/50 rounded-full"
+          style={{
+            boxShadow: "0 0 8px rgba(239, 184, 16, 0.6)"
+          }}
+        />
+      )}
+    </Link>
+  );
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const { count } = useCart();
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +86,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const textColorClass = isScrolled ? "text-text-primary" : "text-white";
+  // En modo claro, usar dorado para mejor visibilidad
+  const textColorClass = isScrolled 
+    ? (theme === "light" ? "text-gold" : "text-text-primary") 
+    : "text-white";
 
   return (
     <nav className={cn(
@@ -57,17 +113,13 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
-              Inicio
-            </Link>
-            <Link href="/ofertas" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
-              Ofertas
-            </Link>
-            <Link href="/mayoristas" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
-              Mayoristas
-            </Link>
+          {/* Desktop Menu - Usando NavLink para detección automática de ruta */}
+          <div className="hidden md:flex items-center space-x-5">
+            {navLinks.map((link) => (
+              <NavLink key={link.href} href={link.href} textColorClass={textColorClass}>
+                {link.label}
+              </NavLink>
+            ))}
             
             <div 
               className="relative"
@@ -78,16 +130,17 @@ export default function Navbar() {
                 className={cn(
                   "flex items-center gap-1 font-medium transition-colors py-2",
                   textColorClass,
-                  hoveredCategory === "categories" ? "text-gold" : ""
+                  "hover:text-gold"
                 )}
               >
+                <Sparkles className="w-4 h-4" />
                 Categorías
                 <ChevronDown className={cn(
-                  "w-4 h-4 transition-transform duration-300",
-                  hoveredCategory === "categories" ? "rotate-180 text-gold" : ""
+                  "w-4 h-4 transition-transform duration-200",
+                  hoveredCategory === "categories" && "rotate-180"
                 )} />
               </button>
-
+              
               <AnimatePresence>
                 {hoveredCategory === "categories" && (
                   <motion.div
@@ -95,27 +148,21 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 p-2 bg-bg-primary/95 backdrop-blur-xl border border-gold/20 rounded-2xl shadow-[0_10px_40px_-10px_rgba(239,184,16,0.3)] overflow-hidden"
+                    className="absolute top-full left-0 mt-1 w-56 rounded-xl border border-gold/20 bg-bg-primary/95 backdrop-blur-xl shadow-xl overflow-hidden"
                   >
-                    <div className="grid gap-1">
-                      {categories.map((cat, index) => (
-                        <Link 
-                          key={cat.name} 
+                    <div className="p-2">
+                      {categories.map((cat) => (
+                        <Link
+                          key={cat.href}
                           href={cat.href}
-                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item"
+                          className={cn(
+                            "flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200",
+                            "hover:bg-gold/10 hover:translate-x-1",
+                            pathname === cat.href ? "text-gold bg-gold/5" : "text-text-primary"
+                          )}
                         >
-                          <div className={cn(
-                            "p-2 rounded-lg bg-white/5 group-hover/item:bg-gold/10 transition-colors",
-                            cat.color
-                          )}>
-                            <cat.icon className="w-5 h-5 group-hover/item:text-gold transition-colors" />
-                          </div>
-                          <div>
-                            <span className="block text-sm font-medium text-text-primary group-hover/item:text-gold transition-colors">
-                              {cat.name}
-                            </span>
-                          </div>
-                          <Sparkles className="w-4 h-4 text-gold opacity-0 group-hover/item:opacity-100 transition-opacity ml-auto" />
+                          <cat.icon className={cn("w-5 h-5", cat.color)} />
+                          <span className="font-medium">{cat.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -130,17 +177,15 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className={cn(
-                "relative p-2 rounded-full transition-all duration-300 overflow-hidden",
-                theme === "dark" 
-                  ? "shimmer-gold text-ceniza" 
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                "p-2 rounded-full transition-all duration-300",
+                textColorClass,
+                "hover:text-gold hover:bg-gold/10"
               )}
-              aria-label="Cambiar tema"
+              aria-label="Toggle theme"
             >
               <motion.div
-                key={theme}
-                initial={{ rotate: -180, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
+                initial={false}
+                animate={{ rotate: theme === "dark" ? 0 : 180 }}
                 transition={{ duration: 0.3 }}
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -173,25 +218,36 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border-custom bg-bg-primary"
+            className="md:hidden bg-bg-primary/95 backdrop-blur-xl border-t border-border-custom"
           >
-            <div className="container mx-auto px-4 py-4 space-y-4">
-              <Link href="/" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Inicio
-              </Link>
-              <Link href="/ofertas" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Ofertas
-              </Link>
-              <Link href="/mayoristas" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Mayoristas
-              </Link>
-              <div className="space-y-2 pl-4 border-l border-white/10">
-                <p className="text-sm text-text-muted uppercase tracking-wider mb-2">Categorías</p>
+            <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+              {/* Mobile NavLinks con indicador activo */}
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.href}
+                  href={link.href} 
+                  className={cn(
+                    "block text-lg font-medium transition-colors",
+                    pathname === link.href 
+                      ? "text-gold border-l-2 border-gold pl-3" 
+                      : "text-text-primary hover:text-gold"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
+              <div className="border-t border-border-custom pt-4">
+                <p className="text-sm text-text-muted mb-2">Categorías</p>
                 {categories.map((cat) => (
-                  <Link 
-                    key={cat.name}
-                    href={cat.href} 
-                    className="flex items-center gap-3 text-base font-medium text-text-secondary hover:text-gold py-1" 
+                  <Link
+                    key={cat.href}
+                    href={cat.href}
+                    className={cn(
+                      "flex items-center gap-3 py-2 text-text-primary hover:text-gold transition-colors",
+                      pathname === cat.href && "text-gold"
+                    )}
                     onClick={() => setIsOpen(false)}
                   >
                     <cat.icon className="w-4 h-4" />
