@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getProducts } from "@/lib/products";
+import { getProducts, products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import BrandCarousel from "@/components/BrandCarousel";
 import { ArrowRight, Package, Shield, Truck } from "lucide-react";
@@ -18,60 +18,9 @@ export default function Home() {
 
 function HomeContent() {
   // For now using static data, in production would use server component + client wrapper
-  const featuredProducts = [
-    {
-      id: "1",
-      nombre: "Audífonos Bluetooth Noise Cancelling",
-      categoria: "Tecnología",
-      precioUnitario: 250,
-      precioMayor: 180,
-      moneda: "Bs" as const,
-      oferta: true,
-      arancelCero: true,
-      imagen: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
-      descripcion: "Audífonos de alta calidad con cancelación de ruido activa.",
-      negociable: true,
-    },
-    {
-      id: "3",
-      nombre: "Juego de Sábanas de Algodón Egipcio",
-      categoria: "Hogar",
-      precioUnitario: 320,
-      precioMayor: 280,
-      moneda: "Bs" as const,
-      oferta: true,
-      arancelCero: false,
-      imagen: "https://images.unsplash.com/photo-1596568461539-74a9845d4722?auto=format&fit=crop&w=800&q=80",
-      descripcion: "Sábanas suaves y duraderas, 100% algodón.",
-      negociable: true,
-    },
-    {
-      id: "5",
-      nombre: "Mochila Antirrobo Impermeable",
-      categoria: "Accesorios",
-      precioUnitario: 120,
-      precioMayor: 95,
-      moneda: "Bs" as const,
-      oferta: true,
-      arancelCero: true,
-      imagen: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-      descripcion: "Mochila segura con puerto USB y materiales resistentes.",
-      negociable: true,
-    },
-    {
-      id: "2",
-      nombre: "Smartwatch Deportivo Pro",
-      categoria: "Tecnología",
-      precioUnitario: 180,
-      precioMayor: 140,
-      moneda: "Bs" as const,
-      oferta: false,
-      arancelCero: true,
-      imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
-      descripcion: "Smartwatch resistente al agua con monitoreo de salud.",
-      negociable: true,
-    },
-  ];
+  // Products are imported from @/lib/products
+  // In a real app we'd filter or fetch specific featured products here
+  const featuredProducts = products;
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -10,6 +10,7 @@ export interface Product {
   imagen: string;
   descripcion: string;
   negociable: boolean;
+  porTemporada?: boolean;
 }
 
 export interface CartItem extends Product {
