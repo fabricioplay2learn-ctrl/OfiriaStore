@@ -51,8 +51,13 @@ export default function ProductCard({ product }: ProductCardProps) {
               </span>
             )}
             {product.arancelCero && (
-              <span className="bg-green-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              <span className="bg-blue-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
                 Sin Arancel
+              </span>
+            )}
+            {product.porTemporada && (
+              <span className="bg-purple-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                Temporada
               </span>
             )}
           </div>

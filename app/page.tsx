@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { getProducts, products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
+import ProductCarousel from "@/components/ProductCarousel";
 import BrandCarousel from "@/components/BrandCarousel";
 import { ArrowRight, Package, Shield, Truck } from "lucide-react";
 import { motion } from "framer-motion";
@@ -142,27 +143,11 @@ function HomeContent() {
       <ProductSearch />
 
       {/* Featured Products */}
-      <section className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="font-poppins text-xl md:text-2xl font-semibold text-text-primary">Ofertas <span className="text-gold">Destacadas</span></h2>
-          <Link href="/categoria/todas" className="text-gold font-medium hover:underline flex items-center gap-1">
-            Ver todo <ArrowRight className="w-4 h-4"/>
-          </Link>
-        </div>
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {featuredProducts.filter(p => p.oferta).slice(0, 4).map((product) => (
-            <motion.div key={product.id} variants={itemVariants}>
-              <ProductCard product={product} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      <ProductCarousel 
+        title="Ofertas Destacadas"
+        products={featuredProducts.filter(p => p.oferta || p.arancelCero || p.porTemporada)}
+        href="/ofertas"
+      />
       {/* Brand Carousel */}
       <BrandCarousel />
       {/* Floating WhatsApp */}

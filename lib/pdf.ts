@@ -16,19 +16,40 @@ interface OrderData {
   total: number;
 }
 
+const formatBs = (value: number) =>
+  value.toLocaleString("es-BO", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
 export function generateOrderPDF(order: OrderData, items: CartItem[]) {
   const doc = new jsPDF();
   const lineHeight = 10;
   let y = 20;
 
-  // Header
+  // Header with Logo
+  const logo = "/logo-ofiriastore.png";
+  try {
+     doc.addImage(logo, "PNG", 20, 10, 40, 15);
+  } catch (e) {
+     console.error("Error adding logo", e);
+  }
+  
   doc.setFontSize(20);
-  doc.text("OfiriaStore - Nota de Pedido", 105, y, { align: "center" });
-  y += 15;
+  doc.text("OfiriaStore - Nota de Pedido", 105, y + 5, { align: "center" }); // Adjusted y
+  y += 25; // More space for logo
+
+  // Formatted Date
+  const dateObj = new Date(order.date);
+  // Fallback if order.date is not parseable or already formatted
+  const formattedDate = !isNaN(dateObj.getTime()) 
+    ? dateObj.toLocaleDateString("es-BO", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })
+    : order.date;
 
   doc.setFontSize(12);
   doc.text(`Código: ${order.code}`, 20, y);
-  doc.text(`Fecha: ${order.date}`, 140, y);
+  doc.text(`Fecha: ${formattedDate}`, 140, y);
   y += 10;
 
   // Customer Info
@@ -65,6 +86,13 @@ export function generateOrderPDF(order: OrderData, items: CartItem[]) {
 
   doc.setFont("helvetica", "normal");
   items.forEach((item) => {
+    // Page Break Logic
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+      // Re-draw header if needed, but for simplicity just continue
+    }
+
     const price = item.quantity >= 3 && item.precioMayor > 0 ? item.precioMayor : item.precioUnitario;
     const subtotal = price * item.quantity;
     
@@ -73,8 +101,8 @@ export function generateOrderPDF(order: OrderData, items: CartItem[]) {
 
     doc.text(name, 20, y);
     doc.text(item.quantity.toString(), 125, y, { align: "right" });
-    doc.text(`${price} Bs`, 155, y, { align: "right" });
-    doc.text(`${subtotal} Bs`, 185, y, { align: "right" });
+    doc.text(`${formatBs(price)} Bs`, 155, y, { align: "right" });
+    doc.text(`${formatBs(subtotal)} Bs`, 185, y, { align: "right" });
     y += 8;
   });
 
@@ -84,8 +112,14 @@ export function generateOrderPDF(order: OrderData, items: CartItem[]) {
   // Total
   doc.setFontSize(14);
   doc.setFont("helvetica", "bold");
-  doc.text(`TOTAL: ${order.total} Bs`, 190, y, { align: "right" });
+  doc.text(`TOTAL: ${formatBs(order.total)} Bs`, 190, y, { align: "right" });
   y += 20;
+
+  // Check for page break before footer
+  if (y > 250) {
+      doc.addPage();
+      y = 20;
+  }
 
   // Footer / QR Instruction
   doc.setFontSize(10);
