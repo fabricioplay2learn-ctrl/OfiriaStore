@@ -50,7 +50,7 @@ function NavLink({
     <Link 
       href={href} 
       className={cn(
-        "relative pb-2 font-medium transition-colors",
+        "relative pb-2 font-medium transition-colors text-sm tracking-wide",
         // Si está activo: texto dorado, sino: color normal con hover dorado
         isActive ? "text-gold" : `${textColorClass} hover:text-gold`
       )}
@@ -114,7 +114,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu - Usando NavLink para detección automática de ruta */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href} textColorClass={textColorClass}>
                 {link.label}
