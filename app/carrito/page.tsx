@@ -3,6 +3,7 @@
 import { useCart } from "@/lib/cart";
 import CartItem from "@/components/CartItem";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, CreditCard } from "lucide-react";
 
 export default function CartPage() {
@@ -12,7 +13,16 @@ export default function CartPage() {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-3xl font-bold mb-4 text-text-primary">Tu carrito está vacío</h1>
-        <p className="text-text-muted mb-8">Parece que aún no has agregado productos.</p>
+        <p className="text-text-muted mb-6">Parece que aún no has agregado productos.</p>
+        <div className="flex justify-center mb-8">
+          <Image 
+            src="/image/SinPago.png" 
+            alt="Carrito vacío" 
+            width={200} 
+            height={200}
+            className="opacity-80"
+          />
+        </div>
         <Link 
           href="/"
           className="inline-flex items-center gap-2 btn-gold py-3 px-6 rounded-xl"
