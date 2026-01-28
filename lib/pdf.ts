@@ -21,24 +21,53 @@ const formatBs = (value: number) =>
 
 export function generateOrderPDF(order: OrderData, items: CartItem[]) {
   const doc = new jsPDF();
-  const lineHeight = 10;
-  let y = 20;
-
+  
   // Header with Logo
-  const logo = "/logo-ofiriastore.png";
-  try {
-     doc.addImage(logo, "PNG", 20, 10, 40, 15);
-  } catch (e) {
-     console.error("Error adding logo", e);
-  }
+  const logoPath = "/logo-ofiriastore.png";
+  const img = new Image();
+  img.src = logoPath;
+
+  img.onload = () => {
+    const originalWidth = img.width;
+    const originalHeight = img.height;
+    
+    // Target width 30 (smaller scale), calculate height
+    const targetWidth = 30;
+    const ratio = originalWidth / originalHeight;
+    const targetHeight = targetWidth / ratio;
+
+    // Center the logo
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const x = (pageWidth - targetWidth) / 2;
+
+    try {
+       doc.addImage(img, "PNG", x, 10, targetWidth, targetHeight);
+    } catch (e) {
+       console.error("Error adding logo", e);
+    }
+
+    // Continue with generation
+    generateContent(doc, order, items, targetHeight);
+  };
+
+  img.onerror = () => {
+    // Fallback if image fails loading
+    generateContent(doc, order, items, 15);
+  };
+}
+
+function generateContent(doc: jsPDF, order: OrderData, items: CartItem[], logoHeight: number) {
+  const lineHeight = 10;
   
   doc.setFontSize(20);
-  doc.text("OfiriaStore - Nota de Pedido", 105, y + 5, { align: "center" }); // Adjusted y
-  y += 25; // More space for logo
+  // Title centered below logo
+  doc.text("OfiriaStore - Nota de Pedido", 105, 10 + logoHeight + 10, { align: "center" }); 
+  
+  // Lower the fields as requested
+  let y = 55; // Increased from 45 to 55 to give more space
 
   // Formatted Date
   const dateObj = new Date(order.date);
-  // Fallback if order.date is not parseable or already formatted
   const formattedDate = !isNaN(dateObj.getTime()) 
     ? dateObj.toLocaleDateString("es-BO", {
         day: "2-digit",
@@ -90,13 +119,11 @@ export function generateOrderPDF(order: OrderData, items: CartItem[]) {
     if (y > 270) {
       doc.addPage();
       y = 20;
-      // Re-draw header if needed, but for simplicity just continue
     }
 
     const price = item.quantity >= 3 && item.precioMayor > 0 ? item.precioMayor : item.precioUnitario;
     const subtotal = price * item.quantity;
     
-    // Simple truncation for name
     const name = item.nombre.length > 40 ? item.nombre.substring(0, 40) + "..." : item.nombre;
 
     doc.text(name, 20, y);
