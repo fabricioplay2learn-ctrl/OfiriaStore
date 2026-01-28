@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Menu, X, Sun, Moon } from "lucide-react";
+import { ShoppingCart, Menu, X, Sun, Moon, ChevronDown, Smartphone, Home, Heart, Watch, Package, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/cart";
 import { useTheme } from "@/lib/theme";
@@ -10,9 +10,18 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/app/image/kali_sinmarket_.png";
 
+const categories = [
+  { name: "Tecnología", href: "/categoria/tecnologia", icon: Smartphone, color: "text-blue-400" },
+  { name: "Hogar", href: "/categoria/hogar", icon: Home, color: "text-green-400" },
+  { name: "Belleza", href: "/categoria/belleza", icon: Heart, color: "text-pink-400" },
+  { name: "Accesorios", href: "/categoria/accesorios", icon: Watch, color: "text-purple-400" },
+  { name: "Otros", href: "/categoria/otros", icon: Package, color: "text-orange-400" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const { count } = useCart();
   const { theme, toggleTheme } = useTheme();
 
@@ -35,13 +44,13 @@ export default function Navbar() {
     )}>
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2 group">
             <Image 
               src={Logo} 
               alt="OfiriaStore Logo" 
               width={40} 
               height={40} 
-              className="object-contain w-10 h-10 hover:scale-110 transition-transform duration-300" 
+              className="object-contain w-10 h-10 group-hover:scale-110 transition-transform duration-300" 
             />
             <span className="text-2xl font-bold text-gold-gradient">
               OfiriaStore
@@ -59,18 +68,62 @@ export default function Navbar() {
             <Link href="/mayoristas" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
               Mayoristas
             </Link>
-            <div className="relative group">
-              <button className={`${textColorClass} hover:text-gold font-medium transition-colors flex items-center gap-1`}>
+            
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredCategory("categories")}
+              onMouseLeave={() => setHoveredCategory(null)}
+            >
+              <button 
+                className={cn(
+                  "flex items-center gap-1 font-medium transition-colors py-2",
+                  textColorClass,
+                  hoveredCategory === "categories" ? "text-gold" : ""
+                )}
+              >
                 Categorías
+                <ChevronDown className={cn(
+                  "w-4 h-4 transition-transform duration-300",
+                  hoveredCategory === "categories" ? "rotate-180 text-gold" : ""
+                )} />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-bg-card border border-border-custom rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                <Link href="/categoria/tecnologia" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold rounded-t-xl">Tecnología</Link>
-                <Link href="/categoria/hogar" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold">Hogar</Link>
-                <Link href="/categoria/belleza" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold">Belleza</Link>
-                <Link href="/categoria/accesorios" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold">Accesorios</Link>
-                <Link href="/categoria/otros" className="block px-4 py-2 text-text-secondary hover:bg-bg-elevated hover:text-gold rounded-b-xl">Otros</Link>
-              </div>
+
+              <AnimatePresence>
+                {hoveredCategory === "categories" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 p-2 bg-bg-primary/95 backdrop-blur-xl border border-gold/20 rounded-2xl shadow-[0_10px_40px_-10px_rgba(239,184,16,0.3)] overflow-hidden"
+                  >
+                    <div className="grid gap-1">
+                      {categories.map((cat, index) => (
+                        <Link 
+                          key={cat.name} 
+                          href={cat.href}
+                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item"
+                        >
+                          <div className={cn(
+                            "p-2 rounded-lg bg-white/5 group-hover/item:bg-gold/10 transition-colors",
+                            cat.color
+                          )}>
+                            <cat.icon className="w-5 h-5 group-hover/item:text-gold transition-colors" />
+                          </div>
+                          <div>
+                            <span className="block text-sm font-medium text-text-primary group-hover/item:text-gold transition-colors">
+                              {cat.name}
+                            </span>
+                          </div>
+                          <Sparkles className="w-4 h-4 text-gold opacity-0 group-hover/item:opacity-100 transition-opacity ml-auto" />
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
+
             <Link href="/quienes-somos" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
               Quienes Somos
             </Link>
@@ -137,22 +190,18 @@ export default function Navbar() {
                 Mayoristas
               </Link>
               <div className="space-y-2 pl-4 border-l border-white/10">
-                <p className="text-sm text-text-muted uppercase tracking-wider">Categorías</p>
-                <Link href="/categoria/tecnologia" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                  Tecnología
-                </Link>
-                <Link href="/categoria/hogar" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                  Hogar
-                </Link>
-                <Link href="/categoria/belleza" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                  Belleza
-                </Link>
-                <Link href="/categoria/accesorios" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                  Accesorios
-                </Link>
-                <Link href="/categoria/otros" className="block text-base font-medium text-text-secondary hover:text-gold" onClick={() => setIsOpen(false)}>
-                  Otros
-                </Link>
+                <p className="text-sm text-text-muted uppercase tracking-wider mb-2">Categorías</p>
+                {categories.map((cat) => (
+                  <Link 
+                    key={cat.name}
+                    href={cat.href} 
+                    className="flex items-center gap-3 text-base font-medium text-text-secondary hover:text-gold py-1" 
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <cat.icon className="w-4 h-4" />
+                    {cat.name}
+                  </Link>
+                ))}
               </div>
               <Link href="/quienes-somos" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
                 Quienes Somos
