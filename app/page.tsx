@@ -150,8 +150,6 @@ function HomeContent() {
         href="/ofertas"
       />
 
-      <div className="my-12"></div>
-
       {/* 2. Más Vendidos */}
       <ProductCarousel 
         title="Más Vendidos"
@@ -159,8 +157,6 @@ function HomeContent() {
         products={featuredProducts.filter(p => p.mayorVenta || p.masSolicitado)}
         href="/categoria/todas"
       />
-
-      <div className="my-12"></div>
 
       {/* 3. Novedades */}
       <ProductCarousel 
