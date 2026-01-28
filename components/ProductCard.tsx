@@ -31,7 +31,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="bg-bg-card rounded-2xl overflow-hidden shadow-lg border border-border-custom group"
+      className="bg-bg-card rounded-2xl overflow-hidden shadow-lg border border-border-custom group h-full flex flex-col"
     >
       {/* Imagen */}
       <Link href={`/producto/${product.id}`}>

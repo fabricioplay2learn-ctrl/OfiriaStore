@@ -80,7 +80,7 @@ export default function ProductCarousel({
       {/* Carousel */}
       <motion.div
         ref={carouselRef}
-        className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide items-stretch"
         whileTap={{ cursor: "grabbing" }}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
