@@ -78,7 +78,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </span>
         
         <Link href={`/producto/${product.id}`}>
-          <h3 className="font-poppins text-sm md:text-base font-medium text-text-primary line-clamp-2 hover:text-gold transition-colors">
+          <h3 className="font-poppins text-sm md:text-base font-medium text-text-primary line-clamp-2 hover:text-gold transition-colors min-h-[2.5rem]">
             {product.nombre}
           </h3>
         </Link>
