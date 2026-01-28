@@ -58,7 +58,7 @@ export default function ProductCarousel({
   };
 
   return (
-    <section className="container mx-auto px-4 py-4 border-b border-white/5 last:border-0">
+    <section className="container mx-auto px-4 py-2">
       {/* Header */}
       <div className="flex items-end justify-between mb-6">
         <div>
