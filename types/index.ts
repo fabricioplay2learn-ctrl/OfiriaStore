@@ -11,6 +11,16 @@ export interface Product {
   descripcion: string;
   negociable: boolean;
   porTemporada?: boolean;
+  masVendido?: boolean;
+  nuevo?: boolean;
+  descuento?: boolean;
+  promocion?: boolean;
+  combo?: boolean;
+  mayorVenta?: boolean;
+  masSolicitado?: boolean;
+  nuevaMarca?: boolean;
+  nuevoModelo?: boolean;
+  interesante?: boolean;
 }
 
 export interface CartItem extends Product {

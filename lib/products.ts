@@ -14,6 +14,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
     descripcion: "Audífonos de alta calidad con cancelación de ruido activa.",
     negociable: true,
+    masVendido: true,
   },
   {
     id: "2",
@@ -27,6 +28,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
     descripcion: "Smartwatch resistente al agua con monitoreo de salud.",
     negociable: true,
+    masVendido: true,
   },
   {
     id: "6",
@@ -53,6 +55,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=800&q=80",
     descripcion: "Drone plegable con cámara 4K, GPS y 30min de vuelo.",
     negociable: true,
+    nuevo: true,
   },
   {
     id: "8",
@@ -67,6 +70,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&q=80",
     descripcion: "Cine en casa, compatible con HDMI y WiFi.",
     negociable: true,
+    nuevo: true,
   },
   {
     id: "9",
@@ -80,6 +84,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=800&q=80",
     descripcion: "Switches azules, retroiluminación personalizable.",
     negociable: true,
+    masVendido: true,
   },
 
   // Hogar
@@ -121,6 +126,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1626146604277-fdd20a321935?w=800&q=80",
     descripcion: "Cocina saludable sin aceite, 5.5L de capacidad.",
     negociable: true,
+    nuevo: true,
   },
   {
     id: "12",
@@ -150,6 +156,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1522335789203-abd6538d8ad1?w=800&q=80",
     descripcion: "Kit completo con sombras, labiales y brochas.",
     negociable: true,
+    masVendido: true,
   },
   {
     id: "13",
@@ -192,6 +199,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
     descripcion: "Mochila segura con puerto USB y materiales resistentes.",
     negociable: true,
+    masVendido: true,
   },
   {
     id: "15",
@@ -205,6 +213,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800&q=80",
     descripcion: "Elegancia atemporal, maquinaria visible, sin pilas.",
     negociable: true,
+    nuevo: true,
   },
   {
     id: "16",
@@ -219,6 +228,7 @@ export const products: Product[] = [
     imagen: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
     descripcion: "Protección UV400 con estilo moderno.",
     negociable: true,
+    nuevo: true,
   },
 ];
 
