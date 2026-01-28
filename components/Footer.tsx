@@ -9,7 +9,7 @@ export default function Footer() {
               OfiriaStore
             </h3>
             <p className="text-text-secondary mb-4 leading-relaxed">
-              Somos José & América. Nacimos con una misión simple: 
+              <a href="/quienes-somos" className="text-gold hover:underline">Quiénes somos</a>. Nacimos con una misión simple: 
               <span className="text-gold"> Conectar Bolivia con el mundo</span>. 
               Importamos productos de calidad desde otros países, 
               eliminando intermediarios para ofrecerte los mejores precios.

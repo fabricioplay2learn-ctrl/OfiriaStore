@@ -51,19 +51,19 @@ function HomeContent() {
           className="container mx-auto px-4 h-full flex flex-col justify-center items-start relative z-10"
         >
           <div className="max-w-3xl">
-            <h1 className="font-poppins text-xl md:text-3xl font-semibold mb-3 leading-tight text-text-primary">
+            <h1 className="font-poppins text-xl md:text-3xl font-semibold mb-3 leading-tight text-white">
               Descubre el mundo <br />
               <span className="text-gold-gradient">
                 sin fronteras
               </span>
             </h1>
-            <p className="text-xs md:text-sm text-text-secondary max-w-xl mb-5 leading-relaxed">
+            <p className="text-xs md:text-sm text-white/80 max-w-xl mb-5 leading-relaxed">
               Importamos lo mejor del mundo, directo a Bolivia.
               <span className="text-gold"> Precios bajos, calidad garantizada y pagos seguros. </span>
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="/categoria/tecnologia"
+                href="/ofertas"
                 animate={{ 
                   scale: [1, 1.03, 1],
                 }}

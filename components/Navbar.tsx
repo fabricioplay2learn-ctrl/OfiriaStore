@@ -123,10 +123,6 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-
-            <Link href="/quienes-somos" className={`${textColorClass} hover:text-gold font-medium transition-colors`}>
-              Quienes Somos
-            </Link>
           </div>
 
           <div className="flex items-center space-x-3">
@@ -203,9 +199,6 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
-              <Link href="/quienes-somos" className="block text-lg font-medium text-text-primary hover:text-gold" onClick={() => setIsOpen(false)}>
-                Quienes Somos
-              </Link>
             </div>
           </motion.div>
         )}
