@@ -10,7 +10,7 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
   return (
     <main className={cn(
       "flex-grow transition-all duration-300",
-      !isHome && "pt-24" // Add top padding for fixed navbar on non-home pages
+      !isHome && "pt-0" // Add top padding for fixed navbar on non-home pages
     )}>
       {children}
     </main>

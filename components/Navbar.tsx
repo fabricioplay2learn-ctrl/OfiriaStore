@@ -114,7 +114,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu - Usando NavLink para detección automática de ruta */}
-          <div className="hidden md:flex items-center space-x-5">
+          <div className="hidden md:flex items-center space-x-3">
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href} textColorClass={textColorClass}>
                 {link.label}
