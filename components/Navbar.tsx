@@ -23,7 +23,6 @@ const categories = [
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/ofertas", label: "Ofertas" },
-  { href: "/mayoristas", label: "Mayoristas" },
 ];
 
 /**
@@ -170,6 +169,10 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+            
+            <NavLink href="/mayoristas" textColorClass={textColorClass}>
+              Mayoristas
+            </NavLink>
           </div>
 
           <div className="flex items-center space-x-3">
@@ -255,6 +258,19 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
+
+              <Link 
+                href="/mayoristas" 
+                className={cn(
+                  "block text-lg font-medium transition-colors border-t border-border-custom pt-4",
+                  pathname === "/mayoristas" 
+                    ? "text-gold pl-3" 
+                    : "text-text-primary hover:text-gold"
+                )}
+                onClick={() => setIsOpen(false)}
+              >
+                Mayoristas
+              </Link>
             </div>
           </motion.div>
         )}
