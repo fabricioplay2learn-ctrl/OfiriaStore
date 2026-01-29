@@ -7,7 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import { Product } from "@/types";
 
 interface ProductCarouselProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   products: Product[];
   href?: string;

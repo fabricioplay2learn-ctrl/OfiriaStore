@@ -154,7 +154,7 @@ function HomeContent() {
 
       {/* 1. Ofertas Destacadas */}
       <ProductCarousel 
-        title="Ofertas Destacadas"
+        title={<>Ofertas <span className="text-gold">Destacadas</span></>}
         subtitle="Oportunidades únicas y precios especiales"
         products={featuredProducts.filter(p => p.oferta || p.arancelCero || p.descuento || p.promocion || p.combo)}
         href="/ofertas"
@@ -162,7 +162,7 @@ function HomeContent() {
 
       {/* 2. Más Vendidos */}
       <ProductCarousel 
-        title="Más Vendidos"
+        title={<>Más <span className="text-gold">Vendidos</span></>}
         subtitle="Los favoritos de nuestros clientes"
         products={featuredProducts.filter(p => p.mayorVenta || p.masSolicitado)}
         href="/categoria/todas"
@@ -170,7 +170,7 @@ function HomeContent() {
 
       {/* 3. Novedades */}
       <ProductCarousel 
-        title="Novedades"
+        title={<>Varias <span className="text-gold">Novedades</span></>}
         subtitle="Lo último en llegar a OfiriaStore"
         products={featuredProducts.filter(p => p.nuevaMarca || p.nuevoModelo || p.interesante)}
         href="/categoria/todas"

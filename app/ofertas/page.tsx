@@ -17,7 +17,7 @@ export default function OfertasPage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <h1 className="font-poppins text-3xl md:text-5xl font-bold mb-3 text-text-primary">
-              Ofertas <span className="text-gold-gradient">Destacadas</span>
+              Ofertas <span className="text-gold">Destacadas</span>
             </h1>
             <p className="text-text-secondary text-lg max-w-2xl">
               Descubre nuestros mejores precios, productos sin aranceles y ediciones limitadas de temporada.
