@@ -150,7 +150,9 @@ function HomeContent() {
       </section>
 
       {/* Product Search */}
-      <ProductSearch />
+      <div className="my-6">
+        <ProductSearch />
+      </div>
 
       {/* 1. Ofertas Destacadas */}
       <ProductCarousel 
