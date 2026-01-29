@@ -13,6 +13,8 @@ import ProductSearch from "@/components/ProductSearch";
 // Need to make this a client component for animations
 // We'll fetch products differently
 
+const MotionLink = motion(Link);
+
 export default function Home() {
   return <HomeContent />;
 }
@@ -40,7 +42,7 @@ function HomeContent() {
     <div className="flex flex-col gap-12 pb-12">
       {/* Hero Section */}
       <section className="relative h-[500px] w-full bg-gradient-to-br from-ceniza via-carboncillo to-ceniza overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557821552-17105176677c?w=1600&q=80')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-10"></div>
         {/* Gold accent glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full blur-3xl"></div>
         
@@ -73,16 +75,24 @@ function HomeContent() {
                   ease: "easeInOut"
                 }}
                 whileHover={{ scale: 1.06 }}
-                className="px-6 py-3 text-sm btn-gold rounded-full shadow-gold flex items-center gap-2"
+                className="px-6 py-3 text-sm btn-gold rounded-full shadow-gold flex items-center gap-2 hover:text-white"
               >
                 Ver Productos <ArrowRight className="w-4 h-4" />
               </motion.a>
-              <Link
+              <MotionLink
                 href="/categoria/hogar"
-                className="px-6 py-3 text-sm btn-outline-gold rounded-full transition-all duration-300 hover:bg-gold/10"
+                whileHover={{ 
+                  scale: [1, 1.05, 1],
+                  transition: { 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut" 
+                  }
+                }}
+                className="px-6 py-3 text-sm btn-outline-gold rounded-full transition-all duration-300 hover:bg-gold/10 hover:text-white"
               >
                 Mayoristas
-              </Link>
+              </MotionLink>
             </div>
           </div>
         </motion.div>
