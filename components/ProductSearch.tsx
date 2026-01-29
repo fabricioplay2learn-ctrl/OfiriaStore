@@ -66,7 +66,7 @@ export default function ProductSearch() {
           transition={{ delay: 0.3 }}
           className="flex flex-wrap items-center justify-center gap-2 mt-4"
         >
-          <span className="text-xs text-text-muted mr-1 font-medium">Tendencias:</span>
+          <span className="text-xs text-text-muted mr-1 font-bold">Tendencias:</span>
           {popularTags.map((tag, index) => (
             <Link 
               key={tag.label} 
@@ -75,7 +75,7 @@ export default function ProductSearch() {
               <motion.span 
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-text-secondary hover:text-gold hover:border-gold/30 hover:bg-gold/5 transition-all cursor-pointer"
+                className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-ceniza/80 dark:bg-white/5 border border-white/10 dark:border-white/10 text-white dark:text-text-secondary hover:text-gold hover:border-gold/30 hover:bg-black dark:hover:bg-gold/5 transition-all cursor-pointer"
               >
                 {tag.label}
               </motion.span>
