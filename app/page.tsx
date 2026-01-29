@@ -50,7 +50,7 @@ function HomeContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="container mx-auto px-4 h-full flex flex-col justify-center items-start relative z-10"
+          className="container mx-auto px-4 h-full flex flex-col justify-center pb-16 items-start relative z-10"
         >
           <div className="max-w-3xl">
             <h1 className="font-poppins text-xl md:text-3xl font-semibold mb-3 leading-tight text-white">
@@ -99,7 +99,7 @@ function HomeContent() {
       </section>
 
       {/* Benefits */}
-      <section className="container mx-auto px-4 -mt-24 relative z-20">
+      <section className="container mx-auto px-4 -mt-32 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -150,7 +150,7 @@ function HomeContent() {
       </section>
 
       {/* Product Search */}
-      <div className="mt-6 mb-0">
+      <div className="mt-10 mb-0">
         <ProductSearch />
       </div>
 
