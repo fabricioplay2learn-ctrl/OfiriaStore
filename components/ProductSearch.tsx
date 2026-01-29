@@ -39,8 +39,8 @@ export default function ProductSearch() {
           {/* Search Bar Container */}
           <div className={cn(
             "relative flex items-center rounded-full p-2 transition-all duration-300",
-            "bg-white/80 dark:bg-bg-card/40 backdrop-blur-md border border-black/10 dark:border-white/10 shadow-sm",
-            isFocused ? "border-gold/50 shadow-[0_0_15px_rgba(239,184,16,0.15)] ring-1 ring-gold/20" : "hover:border-gold/30 hover:bg-white/90 dark:hover:bg-bg-card/50"
+            "bg-ceniza/95 dark:bg-bg-card/40 backdrop-blur-md border border-white/10 shadow-sm",
+            isFocused ? "border-gold/50 shadow-[0_0_15px_rgba(239,184,16,0.15)] ring-1 ring-gold/20" : "hover:border-gold/30 hover:bg-black/95 dark:hover:bg-bg-card/50"
           )}>
             <div className="pl-4 pr-3 text-gold">
               <Search className="w-5 h-5" />
@@ -50,7 +50,7 @@ export default function ProductSearch() {
               placeholder="¿Qué estás buscando hoy?"
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
-              className="w-full bg-transparent text-sm md:text-base text-text-primary placeholder:text-text-muted/70 focus:outline-none py-2"
+              className="w-full bg-transparent text-sm md:text-base text-white placeholder:text-white/50 focus:outline-none py-2"
             />
             <button className="bg-gold hover:bg-gold-bright text-ceniza font-semibold px-6 py-2.5 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
               <span className="hidden sm:inline">Buscar</span>
