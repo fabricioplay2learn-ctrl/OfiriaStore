@@ -103,7 +103,7 @@ function HomeContent() {
             </div>
             <div>
               <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Importación Directa</h3>
-              <p className="text-text-muted text-[11px] leading-tight">Sin intermediarios, mejores precios.</p>
+              <p className="text-text-muted text-[11px] leading-tight">Sin intermediarios, mejores precios y más oportunidades.</p>
             </div>
           </motion.div>
           <motion.div 
@@ -117,8 +117,8 @@ function HomeContent() {
               <Truck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Envíos a todo el país</h3>
-              <p className="text-text-muted text-[11px] leading-tight">Santa Cruz, La Paz, Cochabamba.</p>
+              <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Envíos a todo el País</h3>
+              <p className="text-text-muted text-[11px] leading-tight">Santa Cruz, La Paz, Cochabamba, Potosí y toda Bolivia.</p>
             </div>
           </motion.div>
           <motion.div 
@@ -133,7 +133,7 @@ function HomeContent() {
             </div>
             <div>
               <h3 className="font-poppins font-semibold text-sm text-text-primary leading-tight">Compra Segura</h3>
-              <p className="text-text-muted text-[11px] leading-tight">Pago QR y soporte personalizado.</p>
+              <p className="text-text-muted text-[11px] leading-tight">Soporte personalizado, negociaciones y pagos seguros.</p>
             </div>
           </motion.div>
         </div>
