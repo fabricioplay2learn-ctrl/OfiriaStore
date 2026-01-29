@@ -4,6 +4,7 @@ export interface Product {
   categoria: string;
   precioUnitario: number;
   precioMayor: number;
+  minMayor: number;
   moneda: "Bs";
   oferta: boolean;
   arancelCero: boolean;

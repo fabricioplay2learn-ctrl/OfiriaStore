@@ -46,17 +46,17 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">
             {product.oferta && (
-              <span className="bg-gold text-ceniza text-xs font-semibold px-3 py-1 rounded-full shadow-gold">
+              <span className="bg-gold text-ceniza text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-gold">
                 Oferta
               </span>
             )}
             {product.arancelCero && (
-              <span className="bg-blue-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              <span className="bg-blue-500/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">
                 Sin Arancel
               </span>
             )}
             {product.porTemporada && (
-              <span className="bg-purple-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              <span className="bg-purple-500/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">
                 Temporada
               </span>
             )}
@@ -73,31 +73,31 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Info */}
       <div className="p-4 flex flex-col gap-2">
-        <span className="text-xs text-gold-champan font-medium uppercase tracking-wider">
+        <span className="text-[10px] text-gold-champan font-medium uppercase tracking-wider">
           {product.categoria}
         </span>
         
         <Link href={`/producto/${product.id}`}>
-          <h3 className="font-poppins text-sm md:text-base font-medium text-text-primary line-clamp-2 hover:text-gold transition-colors min-h-[2.5rem]">
+          <h3 className="font-poppins text-[10px] min-[400px]:text-xs md:text-sm font-medium text-text-primary line-clamp-2 hover:text-gold transition-colors min-h-[2rem] md:min-h-[2.5rem]">
             {product.nombre}
           </h3>
         </Link>
 
         {/* Precios con lógica mayorista */}
         <div className="flex flex-col gap-1">
-          <div className="flex items-baseline gap-1">
-            <span className="text-text-muted text-sm">Precio:</span>
-            <span className="text-gold text-xl font-bold">
+          <div className="flex items-baseline gap-1 flex-wrap">
+            <span className="text-text-muted text-[11px]">Precio:</span>
+            <span className="text-gold text-sm sm:text-base md:text-lg font-bold">
               Bs {product.precioUnitario > 0 ? product.precioUnitario : product.precioMayor}
             </span>
-            <span className="text-text-muted text-sm"> [Unidad]</span>
+            <span className="text-text-muted text-[11px]"> Unidad</span>
           </div>
           {product.precioMayor > 0 ? (
-            <p className="text-xs text-gold-champan">
-              Mayorista: Bs {product.precioMayor} {'>'} 3 unidades
+            <p className="text-[11px] text-gold-champan">
+              Mayorista: <span className="font-bold">Bs {product.precioMayor}</span> {'>'} {product.minMayor} unidades
             </p>
           ) : (
-            <p className="text-xs text-text-muted">
+            <p className="text-[10px] text-text-muted">
               Precio: Negociable [Mayorista]
             </p>
           )}
@@ -107,9 +107,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex items-center gap-2 mt-2">
           <button
             onClick={handleAddToCart}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gold/10 text-gold hover:bg-gold hover:text-ceniza transition-all duration-300 text-sm font-medium"
+            className="flex-1 flex items-center justify-center gap-1 py-2 md:py-2.5 rounded-xl bg-gold/10 text-gold hover:bg-gold hover:text-ceniza transition-all duration-300 text-[10px] md:text-xs font-medium"
           >
-            <ShoppingCart className="w-4 h-4" />
+            <ShoppingCart className="w-3 h-3 md:w-4 md:h-4" />
             Agregar
           </button>
           <motion.button
@@ -124,15 +124,15 @@ export default function ProductCard({ product }: ProductCardProps) {
             }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             whileHover={{ scale: 1.15, boxShadow: "0 0 20px rgba(34, 197, 94, 0.8)" }}
-            className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-green-500/10 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 text-sm font-medium"
+            className="flex items-center justify-center gap-1.5 py-2 md:py-2.5 px-2 md:px-3 rounded-xl bg-green-500/10 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 text-[10px] md:text-xs font-medium"
             title="Negociar por WhatsApp"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-3 h-3 md:w-4 md:h-4" />
           </motion.button>
         </div>
 
         {/* Línea de confianza */}
-        <p className="text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
+        <p className="text-[9px] md:text-xs text-text-muted pt-2 border-t border-border-custom flex items-center justify-between">
           <span>🇨🇳 CHN → 🇧🇴 BOL</span>
           {product.negociable && <span className="text-green-400">💬 Hablemos</span>}
         </p>
