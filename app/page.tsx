@@ -150,17 +150,19 @@ function HomeContent() {
       </section>
 
       {/* Product Search */}
-      <div className="my-6">
+      <div className="mt-6 mb-0">
         <ProductSearch />
       </div>
 
       {/* 1. Ofertas Destacadas */}
-      <ProductCarousel 
-        title={<>Ofertas <span className="text-gold">Destacadas</span></>}
-        subtitle="Oportunidades únicas y precios especiales"
-        products={featuredProducts.filter(p => p.oferta || p.arancelCero || p.descuento || p.promocion || p.combo)}
-        href="/ofertas"
-      />
+      <div className="bg-gold/10 py-8 rounded-3xl mx-4 mt-2 mb-8">
+        <ProductCarousel 
+          title={<>Ofertas <span className="text-gold">Destacadas</span></>}
+          subtitle="Oportunidades únicas y precios especiales"
+          products={featuredProducts.filter(p => p.oferta || p.arancelCero || p.descuento || p.promocion || p.combo)}
+          href="/ofertas"
+        />
+      </div>
 
       {/* 2. Más Vendidos */}
       <ProductCarousel 
