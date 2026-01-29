@@ -155,7 +155,7 @@ function HomeContent() {
       </div>
 
       {/* 1. Ofertas Destacadas */}
-      <div className="bg-gold/10 py-4 rounded-3xl mx-2 md:mx-4 mt-2 mb-8">
+      <div className="bg-gold/10 py-4 rounded-3xl mx-2 md:mx-4 mt-2 mb-2">
         <ProductCarousel 
           title={<>Ofertas <span className="text-gold">Destacadas</span></>}
           subtitle="Oportunidades únicas y precios especiales"
@@ -165,20 +165,24 @@ function HomeContent() {
       </div>
 
       {/* 2. Más Vendidos */}
-      <ProductCarousel 
-        title={<>Más <span className="text-gold">Vendidos</span></>}
-        subtitle="Los favoritos de nuestros clientes"
-        products={featuredProducts.filter(p => p.mayorVenta || p.masSolicitado)}
-        href="/categoria/todas"
-      />
+      <div className="bg-gold/10 py-4 rounded-3xl mx-2 md:mx-4 mt-2 mb-2">
+        <ProductCarousel 
+          title={<>Más <span className="text-gold">Vendidos</span></>}
+          subtitle="Los favoritos de nuestros clientes"
+          products={featuredProducts.filter(p => p.mayorVenta || p.masSolicitado)}
+          href="/categoria/todas"
+        />
+      </div>
 
       {/* 3. Novedades */}
-      <ProductCarousel 
-        title={<>Varias <span className="text-gold">Novedades</span></>}
-        subtitle="Lo último en llegar a OfiriaStore"
-        products={featuredProducts.filter(p => p.nuevaMarca || p.nuevoModelo || p.interesante)}
-        href="/categoria/todas"
-      />
+      <div className="bg-gold/10 py-4 rounded-3xl mx-2 md:mx-4 mt-2 mb-2">
+        <ProductCarousel 
+          title={<>Varias <span className="text-gold">Novedades</span></>}
+          subtitle="Lo último en llegar a OfiriaStore"
+          products={featuredProducts.filter(p => p.nuevaMarca || p.nuevoModelo || p.interesante)}
+          href="/categoria/todas"
+        />
+      </div>
       {/* Brand Carousel */}
       <BrandCarousel />
       {/* Floating WhatsApp */}
