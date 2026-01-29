@@ -4,7 +4,7 @@ import { Search } from "lucide-react";
 
 export default function ProductSearch() {
   return (
-    <div className="container mx-auto px-4 my-8">
+    <div className="container mx-auto px-4">
       <div className="max-w-2xl mx-auto">
         <div className="relative group">
           {/* Glow effect on hover/focus */}
