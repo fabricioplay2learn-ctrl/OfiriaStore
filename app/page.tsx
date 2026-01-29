@@ -39,7 +39,7 @@ function HomeContent() {
   };
 
   return (
-    <div className="flex flex-col gap-12 pb-12">
+    <div className="flex flex-col gap-4 pb-12">
       {/* Hero Section */}
       <section className="relative h-[500px] w-full bg-gradient-to-br from-ceniza via-carboncillo to-ceniza overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-10"></div>

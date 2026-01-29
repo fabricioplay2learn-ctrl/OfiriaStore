@@ -60,7 +60,7 @@ export default function ProductCarousel({
   return (
     <section className="container mx-auto px-4 py-0">
       {/* Header */}
-      <div className="flex items-end justify-between mb-6">
+      <div className="flex items-end justify-between mb-2">
         <div>
           <h2 className="font-poppins text-lg md:text-xl font-semibold text-text-primary">
             {title}
