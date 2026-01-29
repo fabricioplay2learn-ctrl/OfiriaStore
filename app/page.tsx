@@ -155,7 +155,7 @@ function HomeContent() {
       </div>
 
       {/* 1. Ofertas Destacadas */}
-      <div className="bg-gold/10 py-8 rounded-3xl mx-4 mt-2 mb-8">
+      <div className="bg-gold/10 py-4 rounded-3xl mx-2 md:mx-4 mt-2 mb-8">
         <ProductCarousel 
           title={<>Ofertas <span className="text-gold">Destacadas</span></>}
           subtitle="Oportunidades únicas y precios especiales"
