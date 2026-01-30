@@ -50,13 +50,13 @@ const categories = [
 export default function CategoriasPage() {
   return (
     <PageBackground>
-      <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="container mx-auto px-4 pt-16 pb-8 md:pt-24 md:pb-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-poppins text-3xl md:text-4xl font-bold text-text-primary mb-3"
+            className="font-poppins text-3xl md:text-4xl font-bold text-white mb-3"
           >
             Explora nuestras <span className="text-gold">Categorías</span>
           </motion.h1>
@@ -64,7 +64,7 @@ export default function CategoriasPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-text-muted text-sm md:text-base"
+            className="text-white text-sm md:text-base"
           >
             Encuentra productos importados seleccionados especialmente para lo que necesitas hoy.
           </motion.p>

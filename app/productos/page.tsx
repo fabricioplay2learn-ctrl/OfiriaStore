@@ -11,13 +11,13 @@ export default function ProductosPage() {
 
   return (
     <PageBackground>
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-16 pb-8 md:pt-24 md:pb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <h1 className="font-poppins text-3xl md:text-5xl font-bold mb-3 text-text-primary">
+            <h1 className="font-poppins text-3xl md:text-5xl font-bold mb-3 text-white">
               Nuestros <span className="text-gold">Productos</span>
             </h1>
-            <p className="text-text-secondary text-lg max-w-2xl">
+            <p className="text-white text-lg max-w-2xl">
               Explora nuestra colección completa de productos importados de alta calidad.
             </p>
           </div>
