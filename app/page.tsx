@@ -99,7 +99,7 @@ function HomeContent() {
       </section>
 
       {/* Benefits */}
-      <section className="container mx-auto px-4 -mt-32 relative z-20">
+      <section className="container mx-auto px-4 -mt-40 sm:-mt-38 md:-mt-32 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
