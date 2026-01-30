@@ -70,12 +70,12 @@ function HomeContent() {
                   scale: [1, 1.03, 1],
                 }}
                 transition={{ 
-                  duration: 3,
+                  duration: 1.2,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
                 whileHover={{ scale: 1.06 }}
-                className="px-6 py-3 text-sm btn-gold rounded-full shadow-gold flex items-center gap-2 hover:text-white"
+                className="px-6 py-3 text-sm btn-gold rounded-full shadow-gold flex items-center gap-2 hover:text-white font-outfit font-bold tracking-wide"
               >
                 Ver Productos <ArrowRight className="w-4 h-4" />
               </motion.a>
