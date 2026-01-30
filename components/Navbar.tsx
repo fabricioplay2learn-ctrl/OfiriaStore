@@ -88,7 +88,7 @@ export default function Navbar() {
               height={40} 
               className="object-contain w-10 h-10 group-hover:scale-110 transition-transform duration-300" 
             />
-            <span className="text-2xl font-bold text-gold-gradient">
+            <span className="text-2xl font-bold font-outfit tracking-wide text-gold-gradient">
               OfiriaStore
             </span>
           </Link>
