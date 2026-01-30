@@ -96,7 +96,7 @@ export default function ProductCarousel({
         {/* Carousel */}
         <div
           ref={carouselRef}
-          className={`flex gap-3 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scrollbar-hide items-stretch select-none ${
+          className={`flex gap-1 overflow-x-auto pb-4 px-2 snap-x snap-mandatory scrollbar-hide items-stretch select-none ${
             isDragging ? "cursor-grabbing" : "cursor-grab"
           }`}
           onMouseDown={handleMouseDown}
