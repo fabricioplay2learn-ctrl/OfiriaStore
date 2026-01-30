@@ -15,7 +15,7 @@ import Logo from "@/app/image/kali_sinmarket_.png";
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/categorias", label: "Categorías" },
-  { href: "/ofertas", label: "Ofertas" },
+  { href: "/productos", label: "Productos" },
 ];
 
 /**

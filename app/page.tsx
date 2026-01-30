@@ -65,7 +65,7 @@ function HomeContent() {
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="/ofertas"
+                href="/productos"
                 animate={{ 
                   scale: [1, 1.03, 1],
                 }}
@@ -160,7 +160,7 @@ function HomeContent() {
           title={<>Ofertas <span className="text-gold">Destacadas</span></>}
           subtitle="Oportunidades únicas y precios especiales"
           products={featuredProducts.filter(p => p.oferta || p.arancelCero || p.descuento || p.promocion || p.combo)}
-          href="/ofertas"
+          href="/productos"
         />
       </div>
 

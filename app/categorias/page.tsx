@@ -36,9 +36,9 @@ const categories = [
     href: "/categoria/deportes",
   },
   {
-    name: "Ofertas",
+    name: "Productos",
     image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80", // Sale/Shopping bag placeholder
-    href: "/ofertas",
+    href: "/productos",
   },
   {
     name: "Mayoristas",

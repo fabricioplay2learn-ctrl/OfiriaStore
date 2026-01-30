@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const popularTags = [
   { label: "Audífonos", href: "/categoria/tecnologia" },
   { label: "Hogar", href: "/categoria/hogar" },
-  { label: "Ofertas", href: "/ofertas" },
+  { label: "Productos", href: "/productos" },
   { label: "Relojes", href: "/categoria/accesorios" },
 ];
 
